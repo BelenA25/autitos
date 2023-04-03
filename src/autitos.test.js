@@ -1,8 +1,8 @@
 import superficiePlana from "./autitos.js";
 
 describe("Superficie Plana retorno de dimension", () => {
-  it("deberia retornar 0", () => {
-    expect(superficiePlana("")).toEqual(0);
+  it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
+    expect(superficiePlana("")).toEqual("ingrese una cadena valida");
   });
   it("deberia retornar el mismo numero con un numero", () => {
     expect(superficiePlana("1")).toEqual(1);
