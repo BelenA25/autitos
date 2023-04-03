@@ -11,6 +11,6 @@ describe("Superficie Plana retorno de dimension", () => {
     expect(superficiePlana("1,2")).toEqual("ingrese una dimension cuadrada");
   });
   it("deberia retornar la dimension cuando se ingresa correctamente", () => {
-    expect(superficiePlana("4,4")).toEqual(4);
+    expect(superficiePlana("4,4")).toEqual("4,4");
   });
 });
