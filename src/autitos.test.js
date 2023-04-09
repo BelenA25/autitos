@@ -41,4 +41,7 @@ describe("Comandos del auto", () => {
   it("deberia retornar mensaje de error cuando el comando es vacio", () => {
     expect(comandos("")).toEqual("Ingrese un comando valido");
   });
+  it("deberia retornar el comando valido", () => {
+    expect(comandos("I")).toEqual("I");
+  });
 });
