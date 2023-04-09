@@ -4,10 +4,15 @@ function superficiePlana(dimension) {
   if(dimension=="") return "Ingrese una cadena valida";
   if(dimension.length == 1)  return "La dimension necesita tener 2 valores ej; 2,2";
   if(dimension[0] != dimension[2]) return "Ingrese una dimension cuadrada";
-  else{
+  else
+  {
     matriz = crearMatriz(parseInt(dimension[0]));
     return dimension;
   }
+}
+
+function coordenadaInicial(coordenada) {
+  if(coordenada=="") return "Ingrese una cadena valida";
 }
 
 function crearMatriz(n) {
@@ -18,4 +23,4 @@ function crearMatriz(n) {
   return matriz;
 }
 
-export default superficiePlana;
+export default superficiePlana; coordenadaInicial;
