@@ -1,7 +1,5 @@
-import superficiePlana from "./autitos.js";
-import coordenadaInicial from "./coordenada.js";
-import comandos from "./comandos.js";
-import validarSecuencia from "./validarSecuenciaComandos.js";
+import superficiePlana,{comandos,coordenadaInicial,validarSecuencia} from "./autitos.js";
+
 
 
 describe("Superficie Plana retorno de dimension", () => {
