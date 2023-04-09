@@ -1,6 +1,6 @@
 import superficiePlana from "./autitos.js";
 import coordenadaInicial from "./coordenada.js";
-
+import comandos from "./comandos.js";
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
@@ -34,5 +34,11 @@ describe("Posicion inicial del auto", () => {
   });
   it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
     expect(coordenadaInicial("4,4P")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
+  });
+});
+
+describe("Comandos del auto", () => {
+  it("deberia retornar mensaje de error cuando el comando es vacio", () => {
+    expect(comandos("")).toEqual("Ingrese un comando valido");
   });
 });
