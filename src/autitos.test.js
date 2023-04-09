@@ -47,5 +47,8 @@ describe("Comandos del auto", () => {
   it("deberia retornar el comando valido D", () => {
     expect(comandos("D")).toEqual("D");
   });
+  it("deberia retornar el comando valido A", () => {
+    expect(comandos("A")).toEqual("A");
+  });
   
 });

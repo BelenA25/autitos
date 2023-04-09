@@ -5,6 +5,9 @@ function comandos(comando){
     if (comando === "D") {
         return "D"
     }
+    if (comando === "A") {
+        return "A"
+    }
     else{
         return "Ingrese un comando valido"
     }
