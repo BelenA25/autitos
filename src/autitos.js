@@ -11,10 +11,6 @@ function superficiePlana(dimension) {
   }
 }
 
-function coordenadaInicial(coordenada) {
-  if(coordenada=="") return "Ingrese una cadena valida";
-}
-
 function crearMatriz(n) {
   const matriz = [];
   for (let i = 0; i < n; i++) {
@@ -23,4 +19,4 @@ function crearMatriz(n) {
   return matriz;
 }
 
-export default superficiePlana; coordenadaInicial;
+export default superficiePlana; 

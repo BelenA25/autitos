@@ -1,5 +1,5 @@
 import superficiePlana from "./autitos.js";
-import coordenadaInicial from "./autitos.js";
+import coordenadaInicial from "./coordenada.js";
 
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
@@ -19,5 +19,8 @@ describe("Superficie Plana retorno de dimension", () => {
 describe("Posicion inicial del auto", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(coordenadaInicial("")).toEqual("Ingrese una cadena valida");
+  });
+  it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
+    expect(coordenadaInicial("a,cO")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
   });
 });
