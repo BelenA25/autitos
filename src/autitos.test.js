@@ -21,6 +21,18 @@ describe("Posicion inicial del auto", () => {
     expect(coordenadaInicial("")).toEqual("Ingrese una cadena valida");
   });
   it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
-    expect(coordenadaInicial("a,cO")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+    expect(coordenadaInicial("a,mO")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+  });
+  it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
+    expect(coordenadaInicial("2,kN")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+  });
+  it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
+    expect(coordenadaInicial("i,8N")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+  });
+  it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
+    expect(coordenadaInicial("2,87")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
+  });
+  it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
+    expect(coordenadaInicial("4,4P")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
   });
 });
