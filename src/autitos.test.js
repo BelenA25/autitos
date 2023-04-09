@@ -1,6 +1,9 @@
 import superficiePlana from "./autitos.js";
 import coordenadaInicial from "./coordenada.js";
 import comandos from "./comandos.js";
+import validarSecuencia from "./validarSecuenciaComandos.js";
+
+
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
@@ -50,5 +53,7 @@ describe("Comandos del auto", () => {
   it("deberia retornar el comando valido A", () => {
     expect(comandos("A")).toEqual("A");
   });
-  
+  it("deberia retornar el comando valido A", () => {
+    expect(validarSecuencia("AADDII")).toEqual("AADDII");
+  });
 });
