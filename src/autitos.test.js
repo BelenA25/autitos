@@ -1,4 +1,4 @@
-import superficiePlana,{comandos,coordenadaInicial,validarSecuencia} from "./autitos.js";
+import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,posicionFinal} from "./autitos.js";
 
 
 
@@ -57,4 +57,13 @@ describe("Comandos del auto", () => {
   it("deberia retornar el comando valido AIAIAI", () => {
     expect(validarSecuencia("AIAIAI")).toEqual("AIAIAI");
   });
-})
+
+
+});
+
+describe("mostrar la posicion final del auto", () => {
+  it("deberia retornar la coordenada final del auto", () => {
+    expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
+  });
+
+});
