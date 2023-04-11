@@ -1,7 +1,5 @@
 import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,moverAuto} from "./autitos.js";
 
-
-
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
