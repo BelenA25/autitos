@@ -73,4 +73,13 @@ describe("Avance del auto", () => {
   it("deberia cambiar de orientacion", () => {
     expect(moverAuto("1,1E","I")).toEqual("1,1N");
   });
+  it("deberia cambiar de orientacion", () => {
+    expect(moverAuto("1,1E","I")).toEqual("1,1N");
+  });
+  it("deberia cambiar de orientacion", () => {
+    expect(moverAuto("1,1E","D")).toEqual("1,1S");
+  });
+  it("deberia moverse continuamente", () => {
+    expect(moverAuto("1,2N","IAIAIAIAA")).toEqual("1,3N");
+  });
 });

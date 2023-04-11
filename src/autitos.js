@@ -3,51 +3,58 @@ let matriz = [[]];
 class Auto{
   constructor(posicionInicial){
     this.posicionInicial = posicionInicial;
-    this.orientacion=posicionInicial[3];
     this.posicionActual = posicionInicial;
   }
   MirarIzquierda() {
     if(this.posicionActual[3]==="N"){
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] +"O";
+      return
     }
     if(this.posicionActual[3]==="E"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"N";
+      return 
     }
     if(this.posicionActual[3]==="S"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"E";
+      return
     }
     if(this.posicionActual[3]==="O"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"S";
+      return
     }
   }
   MirarDerecha() {
     if(this.posicionActual[3]==="N"){
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] +"E";
+      return
     }
     if(this.posicionActual[3]==="E"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"S";
+      return
     }
     if(this.posicionActual[3]==="S"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"o";
+      return
     }
     if(this.posicionActual[3]==="O"){
       this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"N";
+      return
     }
   }
   avanzar(){
-    if(this.orientacion==="N"){
+    if(this.posicionActual[3]==="N"){
       let y = parseInt(this.posicionActual[2]) + 1;
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
     }
-    if(this.orientacion==="E"){
+    if(this.posicionActual[3]==="E"){
       let x = parseInt(this.posicionActual[0]) + 1;
       this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
     }
-    if(this.orientacion==="S"){
+    if(this.posicionActual[3]==="S"){
       let y = parseInt(this.posicionActual[2]) - 1;
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1]+ y.toString() + this.posicionActual[3];
     }
-    if(this.orientacion==="O"){
+    if(this.posicionActual[3]==="O"){
       let x = parseInt(this.posicionActual[0]) - 1;
       this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
     }
@@ -72,7 +79,6 @@ export  function coordenadaInicial(coordenada) {
   if(!isNaN(coordenada[3])) return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
   if(coordenada[3] == "N" || coordenada[3] == "E" || coordenada[3] == "O" || coordenada[3] == "S") {
     auto = new Auto(coordenada);
-    auto.posicionInicial;
     return auto.posicionInicial;
   }
   else return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
