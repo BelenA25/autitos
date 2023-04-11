@@ -7,31 +7,31 @@ class Auto{
     this.posicionActual = posicionInicial;
   }
   MirarIzquierda() {
-    if(this.orientacion==="N"){
-      this.orientacion ="O"
+    if(this.posicionActual[3]==="N"){
+      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] +"O";
     }
-    if(this.orientacion==="E"){
-      this.orientacion ="N"
+    if(this.posicionActual[3]==="E"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"N";
     }
-    if(this.orientacion==="S"){
-      this.orientacion ="E"
+    if(this.posicionActual[3]==="S"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"E";
     }
-    if(this.orientacion==="O"){
-      this.orientacion ="S"
+    if(this.posicionActual[3]==="O"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"S";
     }
   }
   MirarDerecha() {
-    if(this.orientacion==="N"){
-      this.orientacion ="E"
+    if(this.posicionActual[3]==="N"){
+      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] +"E";
     }
-    if(this.orientacion==="E"){
-      this.orientacion ="S"
+    if(this.posicionActual[3]==="E"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"S";
     }
-    if(this.orientacion==="S"){
-      this.orientacion ="O"
+    if(this.posicionActual[3]==="S"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"o";
     }
-    if(this.orientacion==="O"){
-      this.orientacion ="N"
+    if(this.posicionActual[3]==="O"){
+      this.posicionActual = this.posicionActual[0]+ this.posicionActual[1]+ this.posicionActual[2]+"N";
     }
   }
   avanzar(){
@@ -53,6 +53,7 @@ class Auto{
     }
   }
 }
+
 let auto = null; 
 
 export default function superficiePlana(dimension) {
@@ -79,19 +80,20 @@ export  function coordenadaInicial(coordenada) {
 
 export  function comandos(comando){
   if (comando === "I") {
-      auto.MirarIzquierda()
-      return "I"
+    auto.MirarIzquierda();
+    return "I";
   }
   if (comando === "D") {
-    auto.MirarDerecha()
-      return "D"
+    auto.MirarDerecha();
+    return "D";
   }
   if (comando === "A") {
     auto.avanzar();
-      return "A"
+    return "A";
   }
-  else{
-      return "Ingrese un comando valido"
+  else
+  {
+    return "Ingrese un comando valido"
   }
 }
 export  function validarSecuencia(secuencia) {

@@ -67,5 +67,10 @@ describe("Avance del auto", () => {
   it("deberia avanzar en un lugar", () => {
     expect(moverAuto("1,1N","A")).toEqual("1,2N");
   });
-
+  it("deberia avanzar en dos lugares", () => {
+    expect(moverAuto("1,1E","AA")).toEqual("3,1E");
+  });
+  it("deberia cambiar de orientacion", () => {
+    expect(moverAuto("1,1E","I")).toEqual("1,1N");
+  });
 });
