@@ -1,4 +1,4 @@
-import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,posicionFinal} from "./autitos.js";
+import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,moverAuto} from "./autitos.js";
 
 
 
@@ -36,6 +36,9 @@ describe("Posicion inicial del auto", () => {
   it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
     expect(coordenadaInicial("4,4P")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
   });
+  it("deberia retornar la coordenada cuando esta bien escrita", () => {
+    expect(coordenadaInicial("1,2N")).toEqual("1,2N");
+  });
 });
 
 describe("Comandos del auto", () => {
@@ -60,10 +63,9 @@ describe("Comandos del auto", () => {
 
 
 });
-
-describe("mostrar la posicion final del auto", () => {
-  it("deberia retornar la coordenada final del auto", () => {
-    expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
+describe("Avance del auto", () => {
+  it("deberia avanzar en un lugar", () => {
+    expect(moverAuto("1,1N","A")).toEqual("1,2N");
   });
 
 });
