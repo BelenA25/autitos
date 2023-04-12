@@ -63,21 +63,27 @@ describe("Comandos del auto", () => {
 });
 describe("Avance del auto", () => {
   it("deberia avanzar en un lugar", () => {
-    expect(moverAuto("1,1N","A")).toEqual("1,2N");
+    expect(moverAuto("1,1N","A", "9,9")).toEqual("1,2N");
   });
   it("deberia avanzar en dos lugares", () => {
-    expect(moverAuto("1,1E","AA")).toEqual("3,1E");
+    expect(moverAuto("1,1E","AA", "9,9")).toEqual("3,1E");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","I")).toEqual("1,1N");
+    expect(moverAuto("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","I")).toEqual("1,1N");
+    expect(moverAuto("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","D")).toEqual("1,1S");
+    expect(moverAuto("1,1E","D", "9,9")).toEqual("1,1S");
   });
   it("deberia moverse continuamente", () => {
-    expect(moverAuto("1,2N","IAIAIAIAA")).toEqual("1,3N");
+    expect(moverAuto("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
+  });
+  it("deberia dar error si se sobrepasa el limite en y", () => {
+    expect(moverAuto("1,2N","AAAAAAA","5,5")).toEqual("Se sobrepaso el limite de la superficie");
+  });
+  it("deberia dar error si se sobrepasa el limite en x", () => {
+    expect(moverAuto("1,2N","DAAAAAAA","5,5")).toEqual("Se sobrepaso el limite de la superficie");
   });
 });

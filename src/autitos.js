@@ -1,9 +1,8 @@
-let matriz = [[]];
-
 class Auto{
-  constructor(posicionInicial){
+  constructor(posicionInicial, limites){
     this.posicionInicial = posicionInicial;
     this.posicionActual = posicionInicial;
+    this.limites = limites;
   }
   MirarIzquierda() {
     if(this.posicionActual[3]==="N"){
@@ -45,23 +44,40 @@ class Auto{
     if(this.posicionActual[3]==="N"){
       let y = parseInt(this.posicionActual[2]) + 1;
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
+      if(parseInt(this.posicionActual[2])>parseInt(this.limites[0]))
+      {
+        this.posicionActual = "Se sobrepaso el limite de la superficie";
+      }
     }
     if(this.posicionActual[3]==="E"){
       let x = parseInt(this.posicionActual[0]) + 1;
       this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
+      if(parseInt(this.posicionActual[0])>parseInt(this.limites[0]))
+      {
+        this.posicionActual = "Se sobrepaso el limite de la superficie";
+      }
     }
     if(this.posicionActual[3]==="S"){
       let y = parseInt(this.posicionActual[2]) - 1;
       this.posicionActual = this.posicionActual[0] + this.posicionActual[1]+ y.toString() + this.posicionActual[3];
+      if(parseInt(this.posicionActual[2])<0)
+      {
+        this.posicionActual = "Se sobrepaso el limite de la superficie";
+      }
     }
     if(this.posicionActual[3]==="O"){
       let x = parseInt(this.posicionActual[0]) - 1;
       this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
+      if(parseInt(this.posicionActual[0])<0)
+      {
+        this.posicionActual = "Se sobrepaso el limite de la superficie";
+      }
     }
   }
 }
 
 let auto = null; 
+let limite = "";
 
 export default function superficiePlana(dimension) {
   if(dimension=="") return "Ingrese una cadena valida";
@@ -69,6 +85,7 @@ export default function superficiePlana(dimension) {
   if(dimension[0] != dimension[2]) return "Ingrese una dimension cuadrada";
   else
   {
+    limite = dimension;
     return dimension;
   }
 }
@@ -78,7 +95,7 @@ export  function coordenadaInicial(coordenada) {
   if(isNaN(coordenada[0])||isNaN(coordenada[2])) return "Ingrese una coordenada valida. Ej: 1,2";
   if(!isNaN(coordenada[3])) return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
   if(coordenada[3] == "N" || coordenada[3] == "E" || coordenada[3] == "O" || coordenada[3] == "S") {
-    auto = new Auto(coordenada);
+    auto = new Auto(coordenada, limite);
     return auto.posicionInicial;
   }
   else return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
@@ -119,7 +136,8 @@ export  function validarSecuencia(secuencia) {
   return secuenciaValida;
 }
 
-export function moverAuto(posicionInicial, comando) {
+export function moverAuto(posicionInicial, comando, dimension) {
+  superficiePlana(dimension);
   coordenadaInicial(posicionInicial);
   validarSecuencia(comando);
   return auto.posicionActual;
