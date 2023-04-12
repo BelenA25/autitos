@@ -80,10 +80,10 @@ describe("Avance del auto", () => {
   it("deberia moverse continuamente", () => {
     expect(moverAuto("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
   });
-  it("deberia dar error si se sobrepasa el limite en y", () => {
-    expect(moverAuto("1,2N","AAAAAAA","5,5")).toEqual("Se sobrepaso el limite de la superficie");
+  it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
+    expect(moverAuto("1,2N","AAAAAAA","5,5")).toEqual("1,5N");
   });
-  it("deberia dar error si se sobrepasa el limite en x", () => {
-    expect(moverAuto("1,2N","DAAAAAAA","5,5")).toEqual("Se sobrepaso el limite de la superficie");
+  it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
+    expect(moverAuto("1,2N","DAAAAAAA","5,5")).toEqual("5,2E");
   });
 });

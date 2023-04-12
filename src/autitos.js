@@ -43,34 +43,49 @@ class Auto{
   avanzar(){
     if(this.posicionActual[3]==="N"){
       let y = parseInt(this.posicionActual[2]) + 1;
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
-      if(parseInt(this.posicionActual[2])>parseInt(this.limites[0]))
+      if(y>parseInt(this.limites[0]))
       {
-        this.posicionActual = "Se sobrepaso el limite de la superficie";
+        this.posicionActual = this.posicionActual;
+      }
+      else
+      {
+        this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
       }
     }
     if(this.posicionActual[3]==="E"){
       let x = parseInt(this.posicionActual[0]) + 1;
-      this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
-      if(parseInt(this.posicionActual[0])>parseInt(this.limites[0]))
+      
+      if(x>parseInt(this.limites[0]))
       {
-        this.posicionActual = "Se sobrepaso el limite de la superficie";
+        this.posicionActual = this.posicionActual;
+      }
+      else
+      {
+        this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
       }
     }
     if(this.posicionActual[3]==="S"){
       let y = parseInt(this.posicionActual[2]) - 1;
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1]+ y.toString() + this.posicionActual[3];
-      if(parseInt(this.posicionActual[2])<0)
+      
+      if(y<0)
       {
-        this.posicionActual = "Se sobrepaso el limite de la superficie";
+        this.posicionActual = this.posicionActual;
+      }
+      else
+      {
+        this.posicionActual = this.posicionActual[0] + this.posicionActual[1]+ y.toString() + this.posicionActual[3];
       }
     }
     if(this.posicionActual[3]==="O"){
       let x = parseInt(this.posicionActual[0]) - 1;
-      this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
-      if(parseInt(this.posicionActual[0])<0)
+      
+      if(x<0)
       {
-        this.posicionActual = "Se sobrepaso el limite de la superficie";
+        this.posicionActual = this.posicionActual;
+      }
+      else
+      {
+        this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2]+this.posicionActual[3];
       }
     }
   }
@@ -137,7 +152,7 @@ export  function validarSecuencia(secuencia) {
 }
 
 export function moverAuto(posicionInicial, comando, dimension) {
-  superficiePlana(dimension);
+  superficiePlana(dimension)
   coordenadaInicial(posicionInicial);
   validarSecuencia(comando);
   return auto.posicionActual;
