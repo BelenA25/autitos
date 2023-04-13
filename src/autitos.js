@@ -146,7 +146,7 @@ export default function superficiePlana(dimension) {
 export function superficiePlaneta(dimension) {
   if (dimension == "") return "Ingrese una cadena no vacia para la dimension";
   if (dimension.length == 1) return "La dimension o limite necesita tener 2 valores ej; 2,2";
-  if (dimension[0] != dimension[2]) return "Ingrese una dimension o limite cuadrado. Ej: 5,5";
+  if (dimension[0] != dimension[2]) return "Ingrese una dimension o limite cuadrado";
   else {
     return dimension;
   }

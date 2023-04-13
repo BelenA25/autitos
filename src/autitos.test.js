@@ -127,5 +127,8 @@ describe("deberia avanzar en una superficie plana circular", () => {
   it("deberia retornar un mensaje de error para la superficie de una dimension", () => {
     expect(superficiePlaneta("1")).toEqual("La dimension o limite necesita tener 2 valores ej; 2,2");
   });
+  it("deberia retornar mensaje de error con dimensiones no cuadradas", () => {
+    expect(superficiePlaneta("1,2")).toEqual("Ingrese una dimension o limite cuadrado");
+  });
 
 });
