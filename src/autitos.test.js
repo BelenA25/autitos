@@ -1,4 +1,4 @@
-import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,avanceFinal} from "./autitos.js";
+import superficiePlana,{coordenadaInicial,validarSecuenciaDe,avanceFinal} from "./autitos.js";
 
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
@@ -41,25 +41,25 @@ describe("Posicion inicial del auto", () => {
 
 describe("Comandos del auto", () => {
   it("deberia retornar mensaje de error cuando el comando es vacio", () => {
-    expect(validarSecuencia("")).toEqual("estas ingresando un comando vacio, ingrese un comando");
+    expect(validarSecuenciaDe("")).toEqual("estas ingresando un comando vacio, ingrese un comando");
   });
   it("deberia retornar mensaje de error cuando el comando no es IDA", () => {
-    expect(validarSecuencia("WQ")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
+    expect(validarSecuenciaDe("WQ")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
   });
   it("deberia retornar el comando valido I", () => {
-    expect(validarSecuencia("I")).toEqual("I");
+    expect(validarSecuenciaDe("I")).toEqual("I");
   });
   it("deberia retornar el comando valido D", () => {
-    expect(validarSecuencia("D")).toEqual("D");
+    expect(validarSecuenciaDe("D")).toEqual("D");
   });
   it("deberia retornar el comando valido A", () => {
-    expect(validarSecuencia("A")).toEqual("A");
+    expect(validarSecuenciaDe("A")).toEqual("A");
   });
   it("deberia retornar el comando valido AADDII", () => {
-    expect(validarSecuencia("AADDII")).toEqual("AADDII");
+    expect(validarSecuenciaDe("AADDII")).toEqual("AADDII");
   });
   it("deberia retornar el comando valido AIAIAI", () => {
-    expect(validarSecuencia("AIAIAI")).toEqual("AIAIAI");
+    expect(validarSecuenciaDe("AIAIAI")).toEqual("AIAIAI");
   });
 
 

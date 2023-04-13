@@ -133,17 +133,17 @@ export function coordenadaInicial(coordenada) {
 }
 
 
-export function validarSecuencia(secuencia) {
+export function validarSecuenciaDe(comandos) {
 
   const comandosValidos = ["I", "D", "A"];
-  if (secuencia=="")
+  if (comandos=="")
   {
     return "estas ingresando un comando vacio, ingrese un comando"
   }
   let secuenciaValida = "";
 
-  for (let i = 0; i < secuencia.length; i++) {
-    const comandoActual = secuencia[i];
+  for (let i = 0; i < comandos.length; i++) {
+    const comandoActual = comandos[i];
     if (!comandosValidos.includes(comandoActual)) {
       return "Ingrese una cadena siguiendo la logica I,D,A";
     }
@@ -161,8 +161,8 @@ export function avanceFinal(limites, posicionInicial,comando) {
     return coordenadaInicial(posicionInicial);
   }
   auto = new Auto(posicionInicial, limites);
-  if(validarSecuencia(comando)!=comando){
-    return validarSecuencia(comando);
+  if(validarSecuenciaDe(comando)!=comando){
+    return validarSecuenciaDe(comando);
   }
   auto.moverAutoConComandos(comando);
   return auto.posicionActual;
