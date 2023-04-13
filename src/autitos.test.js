@@ -97,4 +97,7 @@ describe("Ingresar de manera erronea alguno de los criterios", () => {
   it("deberia retornar mensaje de error si se escribe mal la coordenada incial", () => {
     expect(avanceFinal("zxczd","DAAAAAAAAAA","5,5")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
   });
+  it("deberia retornar mensaje de error si se escribe mal el comando", () => {
+    expect(avanceFinal("1,2N","retete","5,5")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
+  });
 });
