@@ -63,7 +63,7 @@ class Auto {
       this.comprobarLimitesYAvanzar(x, y);
     }
   }
-  moverAutoConComandos(comando) {
+  moverAutoCon(comando) {
     for(let i = 0; i < comando.length; i++) {
       if (comando[i] === "I") {
         this.MirarIzquierda();
@@ -164,7 +164,7 @@ export function avanceFinal(limites, posicionInicial,comando) {
   if(validarSecuenciaDe(comando)!=comando){
     return validarSecuenciaDe(comando);
   }
-  auto.moverAutoConComandos(comando);
+  auto.moverAutoCon(comando);
   return auto.posicionActual;
 
 }
