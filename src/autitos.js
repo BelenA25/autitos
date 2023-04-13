@@ -100,9 +100,8 @@ class Auto {
       }
     }
   }
-  comprobarLimitesYAvanzar(x, y) {
-    if (this.sobrepasaLosLimites(x, y)) {
-      if(this.sobrepasaEnY(y)){
+  volverAlInicio(x,y){
+    if(this.sobrepasaEnY(y)){
         this.actualizarPosicionActual(x,1)
         return
       }
@@ -118,6 +117,10 @@ class Auto {
         this.actualizarPosicionActual(this.obtenerLimite()-1,y)
         return
       }
+  }
+  comprobarLimitesYAvanzar(x, y) {
+    if (this.sobrepasaLosLimites(x, y)) {
+      this.volverAlInicio(x,y);
     }
     else {
       this.actualizarPosicionActual(x, y);
