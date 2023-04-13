@@ -80,13 +80,16 @@ describe("Avance del auto", () => {
   it("deberia cambiar de orientacion", () => {
     expect(avanceFinal("1,1E","D", "9,9")).toEqual("1,1S");
   });
+  it("deberia cambiar de orientacion", () => {
+    expect(avanceFinal("1,1S","DD", "9,9")).toEqual("1,1N");
+  });
   it("deberia moverse continuamente", () => {
     expect(avanceFinal("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
-    expect(avanceFinal("1,2N","AAAAAAA","5,5")).toEqual("1,5N");
+    expect(avanceFinal("1,2N","AAAAAAAAAAA","5,5")).toEqual("1,5N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
-    expect(avanceFinal("1,2N","DAAAAAAA","5,5")).toEqual("5,2E");
+    expect(avanceFinal("1,2N","DAAAAAAAAAA","5,5")).toEqual("5,2E");
   });
 });

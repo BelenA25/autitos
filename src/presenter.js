@@ -10,7 +10,6 @@ const div = document.querySelector("#resultado-div");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-
   div.innerHTML = "<p>" + avanceFinal(posInicial.value,comandos.value, limites.value) + "</p>";
 
 });
