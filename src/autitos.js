@@ -100,14 +100,19 @@ class Auto {
       }
     }
   }
-
+  sobrepasaEnY(y){
+    return y > parseInt(this.limites[0])
+  }
+  sobrepasaEnX(x){
+    return x > parseInt(this.limites[0])
+  }
   comprobarLimitesYAvanzar(x, y) {
     if (this.sobrepasaLosLimites(x, y)) {
-      if(y > parseInt(this.limites[0])){
+      if(this.sobrepasaEnY(y)){
         this.actualizarPosicionActual(x,1)
         return
       }
-      if(x > parseInt(this.limites[0])){
+      if(this.sobrepasaEnX(x)){
         this.actualizarPosicionActual(1,y)
         return
       }

@@ -142,6 +142,6 @@ describe("Examen: Cuando llega al limite debe retornar al inicio de la superfici
     expect(avanceFinal("5,5","1,2O","AAA")).toEqual("3,2O");
   });
   it("deberia avanzar continuamente como en circulo", () => {
-    expect(avanceFinal("5,5","1,2N","DAAAAAAIAAAA")).toEqual("2,1N");
+    expect(avanceFinal("5,5","1,2N","DAJAAAIAJA")).toEqual("2,1N");
   });
 });
