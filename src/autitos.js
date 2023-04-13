@@ -7,39 +7,42 @@ class Auto {
   estaMirando(eje){
     return this.posicionActual[3] === eje;
   }
+  nuevaPosicionMirandoAl(eje){
+    this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + eje;
+  }
   MirarIzquierda() {
     if (this.estaMirando("N")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "O";
+      this.nuevaPosicionMirandoAl("O");
       return
     }
     if (this.estaMirando("E")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "N";
+      this.nuevaPosicionMirandoAl("N");
       return
     }
     if (this.estaMirando("S")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "E";
+      this.nuevaPosicionMirandoAl("E");
       return
     }
     if (this.estaMirando("O")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "S";
+      this.nuevaPosicionMirandoAl("S");
       return
     }
   }
   MirarDerecha() {
     if (this.estaMirando("N")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "E";
+      this.nuevaPosicionMirandoAl("E");
       return
     }
     if (this.estaMirando("E")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "S";
+      this.nuevaPosicionMirandoAl("S");
       return
     }
     if (this.estaMirando("S")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "o";
+      this.nuevaPosicionMirandoAl("O");
       return
     }
     if (this.estaMirando("O")) {
-      this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + "N";
+      this.nuevaPosicionMirandoAl("N");
       return
     }
   }
