@@ -15,8 +15,9 @@ form.addEventListener("submit", (event) => {
   }
   else
   {
-    div.innerHTML = "<p>" + avanceFinal(comandos[0],comandos[1], comandos[2]) + "</p>";
-
+    div.innerHTML = "<p>" + "Posicion inicial: " + comandos[1] + ", Comandos: " + comandos[2] + "</p>";
+    div.innerHTML += "<p>" + "Posicion Final: " + avanceFinal(comandos[0],comandos[1], comandos[2]) + "</p>";
+    
   }
   
 });
