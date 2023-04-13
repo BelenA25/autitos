@@ -100,12 +100,6 @@ class Auto {
       }
     }
   }
-  sobrepasaEnY(y){
-    return y > parseInt(this.limites[0])
-  }
-  sobrepasaEnX(x){
-    return x > parseInt(this.limites[0])
-  }
   comprobarLimitesYAvanzar(x, y) {
     if (this.sobrepasaLosLimites(x, y)) {
       if(this.sobrepasaEnY(y)){
@@ -116,18 +110,28 @@ class Auto {
         this.actualizarPosicionActual(1,y)
         return
       }
-      if( y <= 0){
-        this.actualizarPosicionActual(x,parseInt(this.limites[0])-1)
+      if(y <= 0){
+        this.actualizarPosicionActual(x,this.obtenerLimite()-1)
         return
       }
-      if( x <= 0){
-        this.actualizarPosicionActual(parseInt(this.limites[0])-1,y)
+      if(x <= 0){
+        this.actualizarPosicionActual(this.obtenerLimite()-1,y)
         return
       }
     }
     else {
       this.actualizarPosicionActual(x, y);
     }
+  }
+
+  obtenerLimite(){
+    return parseInt(this.limites[0]);
+  }
+  sobrepasaEnY(y){
+    return y > this.obtenerLimite();
+  }
+  sobrepasaEnX(x){
+    return x > this.obtenerLimite();
   }
 
   estaMirando(eje) {
