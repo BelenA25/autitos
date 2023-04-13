@@ -103,7 +103,10 @@ class Auto {
 
   comprobarLimitesYAvanzar(x, y) {
     if (this.sobrepasaLosLimites(x, y)) {
-      this.posicionActual = this.posicionActual;
+      if(y > parseInt(this.limites[0])){
+        this.actualizarPosicionActual(x,1)
+        return
+      }
     }
     else {
       this.actualizarPosicionActual(x, y);

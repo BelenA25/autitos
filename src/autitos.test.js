@@ -128,3 +128,8 @@ describe("Examen: Avanzar en dos lugares con el comando 'J'", () => {
     expect(avanceFinal("9,9","1,2N","IAIAIAIJ")).toEqual("1,3N");
   });
 });
+describe("Examen: Cuando llega al limite debe retornar al inicio de la superficie", () => {
+  it("deberia volver al inicio en el eje y", () => {
+    expect(avanceFinal("5,5","1,2N","AAAAAAA")).toEqual("1,4N");
+  });
+});
