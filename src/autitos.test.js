@@ -100,4 +100,7 @@ describe("Ingresar de manera erronea alguno de los criterios", () => {
   it("deberia retornar mensaje de error si se escribe mal el comando", () => {
     expect(avanceFinal("1,2N","retete","5,5")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
   });
+  it("deberia retornar mensaje de error si se escribe mal el limite", () => {
+    expect(avanceFinal("1,2N","retete","asd")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
+  });
 });
