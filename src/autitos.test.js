@@ -124,4 +124,7 @@ describe("Examen: Avanzar en dos lugares con el comando 'J'", () => {
   it("deberia avanzar en dos posiciones al saltar mirando al oeste y retrocediendo en el eje x", () => {
     expect(avanceFinal("9,9","3,1O","J")).toEqual("1,1O");
   });
+  it("deberia moverse continuamente con el salto incluido", () => {
+    expect(avanceFinal("9,9","1,2N","IAIAIAIJ")).toEqual("1,3N");
+  });
 });
