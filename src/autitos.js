@@ -63,6 +63,14 @@ class Auto {
       this.comprobarLimitesYAvanzar(x, y);
     }
   }
+  saltar() {
+    let y = this.obtenerYDePosicionActual();
+    let x = this.obtenerXDePosicionActual();
+    if (this.estaMirando("N")) {
+      y = y + 2;
+      this.comprobarLimitesYAvanzar(x, y);
+    }
+  }
   moverAutoCon(comando) {
     for(let i = 0; i < comando.length; i++) {
       if (comando[i] === "I") {
@@ -73,6 +81,9 @@ class Auto {
       }
       if (comando[i] === "A") {
         this.avanzar();
+      }
+      if (comando[i] === "J") {
+        this.saltar();
       }
     }
   }
