@@ -4,12 +4,7 @@ class Auto {
     this.posicionActual = posicionInicial;
     this.limites = limites;
   }
-  estaMirando(eje){
-    return this.posicionActual[3] === eje;
-  }
-  nuevaPosicionMirandoAl(eje){
-    this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + eje;
-  }
+
   MirarIzquierda() {
     if (this.estaMirando("N")) {
       this.nuevaPosicionMirandoAl("O");
@@ -46,46 +41,65 @@ class Auto {
       return
     }
   }
+  
   avanzar() {
+    let y = this.obtenerYDePosicionActual();
+    let x = this.obtenerXDePosicionActual();
     if (this.estaMirando("N")) {
-      let y = parseInt(this.posicionActual[2]) + 1;
-      if (y > parseInt(this.limites[0])) {
+      y = y + 1;
+      if (this.sobrepasaLosLimites(x, y)) {
         this.posicionActual = this.posicionActual;
       }
       else {
-        this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
+        this.actualizarPosicionActual(x, y);
       }
     }
     if (this.estaMirando("E")) {
-      let x = parseInt(this.posicionActual[0]) + 1;
-
-      if (x > parseInt(this.limites[0])) {
+      x = x + 1;
+      if (this.sobrepasaLosLimites(x, y)) {
         this.posicionActual = this.posicionActual;
       }
       else {
-        this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2] + this.posicionActual[3];
+        this.actualizarPosicionActual(x, y)
       }
     }
     if (this.estaMirando("S")) {
-      let y = parseInt(this.posicionActual[2]) - 1;
+      y = y - 1;
 
-      if (y < 0) {
+      if (this.sobrepasaLosLimites(x, y)) {
         this.posicionActual = this.posicionActual;
       }
       else {
-        this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + y.toString() + this.posicionActual[3];
+        this.actualizarPosicionActual(x, y)
       }
     }
     if (this.estaMirando("O")) {
-      let x = parseInt(this.posicionActual[0]) - 1;
-
-      if (x < 0) {
+      x = x - 1;
+      if (this.sobrepasaLosLimites(x, y)) {
         this.posicionActual = this.posicionActual;
       }
       else {
-        this.posicionActual = x.toString() + this.posicionActual[1] + this.posicionActual[2] + this.posicionActual[3];
+        this.actualizarPosicionActual(x, y)
       }
     }
+  }
+  estaMirando(eje) {
+    return this.posicionActual[3] === eje;
+  }
+  nuevaPosicionMirandoAl(eje) {
+    this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + eje;
+  }
+  obtenerYDePosicionActual() {
+    return parseInt(this.posicionActual[2]);
+  }
+  obtenerXDePosicionActual() {
+    return parseInt(this.posicionActual[0]);
+  }
+  sobrepasaLosLimites(x, y) {
+    return y > parseInt(this.limites[0]) || x > parseInt(this.limites[0]) || y < 0 || x < 0
+  }
+  actualizarPosicionActual(x, y) {
+    this.posicionActual = x.toString() + this.posicionActual[1] + y.toString() + this.posicionActual[3];
   }
 }
 
