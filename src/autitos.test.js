@@ -66,44 +66,44 @@ describe("Comandos del auto", () => {
 });
 describe("Avance del auto", () => {
   it("deberia avanzar en un lugar", () => {
-    expect(avanceFinal("1,1N","A", "9,9")).toEqual("1,2N");
+    expect(avanceFinal( "9,9","1,1N","A")).toEqual("1,2N");
   });
   it("deberia avanzar en dos lugares", () => {
-    expect(avanceFinal("1,1E","AA", "9,9")).toEqual("3,1E");
+    expect(avanceFinal("9,9","1,1E","AA")).toEqual("3,1E");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
+    expect(avanceFinal("9,9","1,1E","I")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(avanceFinal("2,3O","III", "9,9")).toEqual("2,3N");
+    expect(avanceFinal("9,9","2,3O","III")).toEqual("2,3N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
+    expect(avanceFinal("9,9","1,1E","I")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(avanceFinal("1,1E","D", "9,9")).toEqual("1,1S");
+    expect(avanceFinal("9,9","1,1E","D")).toEqual("1,1S");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(avanceFinal("1,1S","DD", "9,9")).toEqual("1,1N");
+    expect(avanceFinal("9,9","1,1S","DD")).toEqual("1,1N");
   });
   it("deberia moverse continuamente", () => {
-    expect(avanceFinal("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
+    expect(avanceFinal("9,9","1,2N","IAIAIAIAA")).toEqual("1,3N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
-    expect(avanceFinal("1,2N","AAAAAAAAAAA","5,5")).toEqual("1,5N");
+    expect(avanceFinal("5,5","1,2N","AAAAAAAAAAA")).toEqual("1,5N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
-    expect(avanceFinal("1,2N","DAAAAAAAAAA","5,5")).toEqual("5,2E");
+    expect(avanceFinal("5,5","1,2N","DAAAAAAAAAA")).toEqual("5,2E");
   });
 });
 describe("Ingresar de manera erronea alguno de los criterios", () => {
   it("deberia retornar mensaje de error si se escribe mal la coordenada incial", () => {
-    expect(avanceFinal("zxczd","DAAAAAAAAAA","5,5")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
+    expect(avanceFinal("5,5","zxczd","DAAAAAAAAAA")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
   });
   it("deberia retornar mensaje de error si se escribe mal el comando", () => {
-    expect(avanceFinal("1,2N","retete","5,5")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
+    expect(avanceFinal("5,5","1,2N","retete")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
   });
   it("deberia retornar mensaje de error si se escribe mal el limite", () => {
-    expect(avanceFinal("1,2N","retete","asd")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
+    expect(avanceFinal("asd","1,2N","retete")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
   });
 });

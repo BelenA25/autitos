@@ -163,11 +163,10 @@ export function validarSecuencia(secuencia) {
   return secuenciaValida;
 }
 
-export function avanceFinal(posicionInicial,comando, limites) {
+export function avanceFinal(limites, posicionInicial,comando) {
   if(superficiePlana(limites) != limites){
     return superficiePlana(limites);
   }
-  console.log(coordenadaInicial(posicionInicial));
   if(coordenadaInicial(posicionInicial) != posicionInicial){
     return coordenadaInicial(posicionInicial);
   }

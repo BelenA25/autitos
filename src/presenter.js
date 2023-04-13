@@ -1,8 +1,6 @@
 import {avanceFinal} from "./autitos.js";
 
-const posInicial = document.querySelector("#posicionInicial");
-const comandos = document.querySelector("#comandos");
-const limites = document.querySelector("#limites");
+let cadena = document.querySelector("#cadena");
 const form = document.querySelector("#dimension-form");
 const div = document.querySelector("#resultado-div");
 
@@ -10,6 +8,15 @@ const div = document.querySelector("#resultado-div");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  div.innerHTML = "<p>" + avanceFinal(posInicial.value,comandos.value, limites.value) + "</p>";
+  let comandos = cadena.value.split("/");
+  if(comandos.length == 1)
+  {
+    alert("Escriba los comandos siguiendo el formato: 5,5/1,2N/IAIAIAIAA, separando por barras");
+  }
+  else
+  {
+    div.innerHTML = "<p>" + avanceFinal(comandos[0],comandos[1], comandos[2]) + "</p>";
 
+  }
+  
 });
