@@ -23,6 +23,7 @@ class Auto {
       return
     }
   }
+
   MirarDerecha() {
     if (this.estaMirando("N")) {
       this.nuevaPosicionMirandoAl("E");
@@ -41,63 +42,57 @@ class Auto {
       return
     }
   }
-  
+
   avanzar() {
     let y = this.obtenerYDePosicionActual();
     let x = this.obtenerXDePosicionActual();
     if (this.estaMirando("N")) {
       y = y + 1;
-      if (this.sobrepasaLosLimites(x, y)) {
-        this.posicionActual = this.posicionActual;
-      }
-      else {
-        this.actualizarPosicionActual(x, y);
-      }
+      this.comprobarLimitesYAvanzar(x, y);
     }
     if (this.estaMirando("E")) {
       x = x + 1;
-      if (this.sobrepasaLosLimites(x, y)) {
-        this.posicionActual = this.posicionActual;
-      }
-      else {
-        this.actualizarPosicionActual(x, y)
-      }
+      this.comprobarLimitesYAvanzar(x, y);
     }
     if (this.estaMirando("S")) {
       y = y - 1;
-
-      if (this.sobrepasaLosLimites(x, y)) {
-        this.posicionActual = this.posicionActual;
-      }
-      else {
-        this.actualizarPosicionActual(x, y)
-      }
+      this.comprobarLimitesYAvanzar(x, y);
     }
     if (this.estaMirando("O")) {
       x = x - 1;
-      if (this.sobrepasaLosLimites(x, y)) {
-        this.posicionActual = this.posicionActual;
-      }
-      else {
-        this.actualizarPosicionActual(x, y)
-      }
+      this.comprobarLimitesYAvanzar(x, y);
     }
   }
+
+  comprobarLimitesYAvanzar(x, y) {
+    if (this.sobrepasaLosLimites(x, y)) {
+      this.posicionActual = this.posicionActual;
+    }
+    else {
+      this.actualizarPosicionActual(x, y);
+    }
+  }
+
   estaMirando(eje) {
     return this.posicionActual[3] === eje;
   }
+
   nuevaPosicionMirandoAl(eje) {
     this.posicionActual = this.posicionActual[0] + this.posicionActual[1] + this.posicionActual[2] + eje;
   }
+
   obtenerYDePosicionActual() {
     return parseInt(this.posicionActual[2]);
   }
+
   obtenerXDePosicionActual() {
     return parseInt(this.posicionActual[0]);
   }
+
   sobrepasaLosLimites(x, y) {
     return y > parseInt(this.limites[0]) || x > parseInt(this.limites[0]) || y < 0 || x < 0
   }
+  
   actualizarPosicionActual(x, y) {
     this.posicionActual = x.toString() + this.posicionActual[1] + y.toString() + this.posicionActual[3];
   }
