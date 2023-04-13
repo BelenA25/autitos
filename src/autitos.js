@@ -63,6 +63,19 @@ class Auto {
       this.comprobarLimitesYAvanzar(x, y);
     }
   }
+  moverAutoConComandos(comando) {
+    for(let i = 0; i < comando.length; i++) {
+      if (comando[i] === "I") {
+        this.MirarIzquierda();
+      }
+      if (comando[i] === "D") {
+        this.MirarDerecha();
+      }
+      if (comando[i] === "A") {
+        this.avanzar();
+      }
+    }
+  }
 
   comprobarLimitesYAvanzar(x, y) {
     if (this.sobrepasaLosLimites(x, y)) {
@@ -92,7 +105,7 @@ class Auto {
   sobrepasaLosLimites(x, y) {
     return y > parseInt(this.limites[0]) || x > parseInt(this.limites[0]) || y < 0 || x < 0
   }
-  
+
   actualizarPosicionActual(x, y) {
     this.posicionActual = x.toString() + this.posicionActual[1] + y.toString() + this.posicionActual[3];
   }
@@ -156,12 +169,10 @@ export function validarSecuencia(secuencia) {
   return secuenciaValida;
 }
 
-export function moverAuto(posicionInicial, comando, dimension) {
-  superficiePlana(dimension)
-  coordenadaInicial(posicionInicial);
-  validarSecuencia(comando);
+export function avanceFinal(posicionInicial,comando, limites) {
+  
+  auto = new Auto(posicionInicial, limites);
+  auto.moverAutoConComandos(comando);
   return auto.posicionActual;
+
 }
-
-
-

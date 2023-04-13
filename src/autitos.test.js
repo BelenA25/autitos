@@ -1,4 +1,4 @@
-import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,moverAuto} from "./autitos.js";
+import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,avanceFinal} from "./autitos.js";
 
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
@@ -63,27 +63,27 @@ describe("Comandos del auto", () => {
 });
 describe("Avance del auto", () => {
   it("deberia avanzar en un lugar", () => {
-    expect(moverAuto("1,1N","A", "9,9")).toEqual("1,2N");
+    expect(avanceFinal("1,1N","A", "9,9")).toEqual("1,2N");
   });
   it("deberia avanzar en dos lugares", () => {
-    expect(moverAuto("1,1E","AA", "9,9")).toEqual("3,1E");
+    expect(avanceFinal("1,1E","AA", "9,9")).toEqual("3,1E");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","I", "9,9")).toEqual("1,1N");
+    expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","I", "9,9")).toEqual("1,1N");
+    expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
-    expect(moverAuto("1,1E","D", "9,9")).toEqual("1,1S");
+    expect(avanceFinal("1,1E","D", "9,9")).toEqual("1,1S");
   });
   it("deberia moverse continuamente", () => {
-    expect(moverAuto("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
+    expect(avanceFinal("1,2N","IAIAIAIAA", "9,9")).toEqual("1,3N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
-    expect(moverAuto("1,2N","AAAAAAA","5,5")).toEqual("1,5N");
+    expect(avanceFinal("1,2N","AAAAAAA","5,5")).toEqual("1,5N");
   });
   it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
-    expect(moverAuto("1,2N","DAAAAAAA","5,5")).toEqual("5,2E");
+    expect(avanceFinal("1,2N","DAAAAAAA","5,5")).toEqual("5,2E");
   });
 });
