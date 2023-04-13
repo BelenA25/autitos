@@ -137,15 +137,12 @@ export function coordenadaInicial(coordenada) {
 
 export function comandos(comando) {
   if (comando === "I") {
-    auto.MirarIzquierda();
     return "I";
   }
   if (comando === "D") {
-    auto.MirarDerecha();
     return "D";
   }
   if (comando === "A") {
-    auto.avanzar();
     return "A";
   }
   else {
@@ -170,8 +167,16 @@ export function validarSecuencia(secuencia) {
 }
 
 export function avanceFinal(posicionInicial,comando, limites) {
-  
+  if(superficiePlana(limites) != limites){
+    return superficiePlana(limites);
+  }
+  if(coordenadaInicial(posicionInicial)!=posicionInicial){
+    return coordenadaInicial(posicionInicial);
+  }
   auto = new Auto(posicionInicial, limites);
+  if(validarSecuencia(comando)!=comando){
+    return validarSecuencia(comando);
+  }
   auto.moverAutoConComandos(comando);
   return auto.posicionActual;
 
