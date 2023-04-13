@@ -132,4 +132,7 @@ describe("Examen: Cuando llega al limite debe retornar al inicio de la superfici
   it("deberia volver al inicio en el eje y", () => {
     expect(avanceFinal("5,5","1,2N","AAAAAAA")).toEqual("1,4N");
   });
+  it("deberia volver al inicio en el eje x", () => {
+    expect(avanceFinal("5,5","1,2N","DAAAAAAA")).toEqual("3,2E");
+  });
 });
