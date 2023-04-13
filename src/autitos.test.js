@@ -93,3 +93,8 @@ describe("Avance del auto", () => {
     expect(avanceFinal("1,2N","DAAAAAAAAAA","5,5")).toEqual("5,2E");
   });
 });
+describe("Ingresar de manera erronea alguno de los criterios", () => {
+  it("deberia retornar mensaje de error si se escribe mal la coordenada incial", () => {
+    expect(avanceFinal("zxczd","DAAAAAAAAAA","5,5")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
+  });
+});
