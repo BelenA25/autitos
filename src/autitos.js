@@ -112,27 +112,24 @@ class Auto {
 }
 
 let auto = null;
-let limite = "";
 
 export default function superficiePlana(dimension) {
-  if (dimension == "") return "Ingrese una cadena valida";
-  if (dimension.length == 1) return "La dimension necesita tener 2 valores ej; 2,2";
-  if (dimension[0] != dimension[2]) return "Ingrese una dimension cuadrada";
+  if (dimension == "") return "Ingrese una cadena no vacia para la dimension o limite de la superficie";
+  if (dimension.length == 1) return "La dimension o limite necesita tener 2 valores ej; 2,2";
+  if (dimension[0] != dimension[2]) return "Ingrese una dimension o limite cuadrado. Ej: 5,5";
   else {
-    limite = dimension;
     return dimension;
   }
 }
 
 export function coordenadaInicial(coordenada) {
-  if (coordenada == "") return "Ingrese una cadena valida";
-  if (isNaN(coordenada[0]) || isNaN(coordenada[2])) return "Ingrese una coordenada valida. Ej: 1,2";
-  if (!isNaN(coordenada[3])) return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
+  if (coordenada == "") return "Ingrese una cadena no vacia para la posicion inicial del auto";
+  if (isNaN(coordenada[0]) || isNaN(coordenada[2])) return "Ingrese una coordenada valida de posicion inicial. Ej: 1,2E";
+  if (!isNaN(coordenada[3])) return "Ingrese un eje valido de posicion inicial. Ej: N(norte), O(oeste), E(este)";
   if (coordenada[3] == "N" || coordenada[3] == "E" || coordenada[3] == "O" || coordenada[3] == "S") {
-    auto = new Auto(coordenada, limite);
-    return auto.posicionInicial;
+    return coordenada;
   }
-  else return "Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)";
+  else return "Ingrese un eje valido de posicion inicial. Ej: N(norte), O(oeste), E(este)";
 }
 
 export function comandos(comando) {
@@ -146,7 +143,7 @@ export function comandos(comando) {
     return "A";
   }
   else {
-    return "Ingrese un comando valido"
+    return "Ingrese una cadena no vacia para los comandos"
   }
 }
 export function validarSecuencia(secuencia) {
@@ -156,7 +153,7 @@ export function validarSecuencia(secuencia) {
     let comandoActual = secuencia[i];
     let resultado = comandos(comandoActual);
 
-    if (resultado === "Ingrese un comando valido") {
+    if (resultado === "Ingrese una cadena no vacia para los comandos") {
       throw new Error(resultado);
     }
 
@@ -170,7 +167,7 @@ export function avanceFinal(posicionInicial,comando, limites) {
   if(superficiePlana(limites) != limites){
     return superficiePlana(limites);
   }
-  if(coordenadaInicial(posicionInicial)!=posicionInicial){
+  if(coordenadaInicial(posicionInicial) != posicionInicial){
     return coordenadaInicial(posicionInicial);
   }
   auto = new Auto(posicionInicial, limites);

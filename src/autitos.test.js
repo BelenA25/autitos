@@ -2,13 +2,13 @@ import superficiePlana,{comandos,coordenadaInicial,validarSecuencia,avanceFinal}
 
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
-    expect(superficiePlana("")).toEqual("Ingrese una cadena valida");
+    expect(superficiePlana("")).toEqual("Ingrese una cadena no vacia para la dimension o limite de la superficie");
   });
   it("deberia retornar un mensaje de error para la superficie de una dimension", () => {
-    expect(superficiePlana("1")).toEqual("La dimension necesita tener 2 valores ej; 2,2");
+    expect(superficiePlana("1")).toEqual("La dimension o limite necesita tener 2 valores ej; 2,2");
   });
   it("deberia retornar mensaje de error con dimensiones no cuadradas", () => {
-    expect(superficiePlana("1,2")).toEqual("Ingrese una dimension cuadrada");
+    expect(superficiePlana("1,2")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
   });
   it("deberia retornar la dimension cuando se ingresa correctamente", () => {
     expect(superficiePlana("4,4")).toEqual("4,4");
@@ -17,22 +17,22 @@ describe("Superficie Plana retorno de dimension", () => {
 
 describe("Posicion inicial del auto", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
-    expect(coordenadaInicial("")).toEqual("Ingrese una cadena valida");
+    expect(coordenadaInicial("")).toEqual("Ingrese una cadena no vacia para la posicion inicial del auto");
   });
   it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
-    expect(coordenadaInicial("a,mO")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+    expect(coordenadaInicial("a,mO")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
   });
   it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
-    expect(coordenadaInicial("2,kN")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+    expect(coordenadaInicial("2,kN")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
   });
   it("deberia retornar mensaje de error cuando la coordenada no cumple con el formato x,y", () => {
-    expect(coordenadaInicial("i,8N")).toEqual("Ingrese una coordenada valida. Ej: 1,2");
+    expect(coordenadaInicial("i,8N")).toEqual("Ingrese una coordenada valida de posicion inicial. Ej: 1,2E");
   });
   it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
-    expect(coordenadaInicial("2,87")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
+    expect(coordenadaInicial("2,87")).toEqual("Ingrese un eje valido de posicion inicial. Ej: N(norte), O(oeste), E(este)");
   });
   it("deberia retornar mensaje de error cuando la coordenada no tiene una de los ejes cardinales", () => {
-    expect(coordenadaInicial("4,4P")).toEqual("Ingrese un eje valido. Ej: N(norte), O(oeste), E(este)");
+    expect(coordenadaInicial("4,4P")).toEqual("Ingrese un eje valido de posicion inicial. Ej: N(norte), O(oeste), E(este)");
   });
   it("deberia retornar la coordenada cuando esta bien escrita", () => {
     expect(coordenadaInicial("1,2N")).toEqual("1,2N");
@@ -41,7 +41,7 @@ describe("Posicion inicial del auto", () => {
 
 describe("Comandos del auto", () => {
   it("deberia retornar mensaje de error cuando el comando es vacio", () => {
-    expect(comandos("")).toEqual("Ingrese un comando valido");
+    expect(comandos("")).toEqual("Ingrese una cadena no vacia para los comandos");
   });
   it("deberia retornar el comando valido I", () => {
     expect(comandos("I")).toEqual("I");
