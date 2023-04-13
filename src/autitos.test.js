@@ -75,6 +75,9 @@ describe("Avance del auto", () => {
     expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
+    expect(avanceFinal("2,3O","III", "9,9")).toEqual("2,3N");
+  });
+  it("deberia cambiar de orientacion", () => {
     expect(avanceFinal("1,1E","I", "9,9")).toEqual("1,1N");
   });
   it("deberia cambiar de orientacion", () => {
