@@ -41,7 +41,10 @@ describe("Posicion inicial del auto", () => {
 
 describe("Comandos del auto", () => {
   it("deberia retornar mensaje de error cuando el comando es vacio", () => {
-    expect(comandos("")).toEqual("Ingrese una cadena no vacia para los comandos");
+    expect(comandos("")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
+  });
+  it("deberia retornar mensaje de error cuando el comando no es IDA", () => {
+    expect(comandos("WQ")).toEqual("Ingrese una cadena siguiendo la logica I,D,A");
   });
   it("deberia retornar el comando valido I", () => {
     expect(comandos("I")).toEqual("I");

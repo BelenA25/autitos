@@ -143,7 +143,7 @@ export function comandos(comando) {
     return "A";
   }
   else {
-    return "Ingrese una cadena no vacia para los comandos"
+    return "Ingrese una cadena siguiendo la logica I,D,A"
   }
 }
 export function validarSecuencia(secuencia) {
@@ -153,8 +153,8 @@ export function validarSecuencia(secuencia) {
     let comandoActual = secuencia[i];
     let resultado = comandos(comandoActual);
 
-    if (resultado === "Ingrese una cadena no vacia para los comandos") {
-      throw new Error(resultado);
+    if (resultado === "Ingrese una cadena siguiendo la logica I,D,A") {
+      return resultado;
     }
 
     secuenciaValida += resultado;
@@ -167,6 +167,7 @@ export function avanceFinal(posicionInicial,comando, limites) {
   if(superficiePlana(limites) != limites){
     return superficiePlana(limites);
   }
+  console.log(coordenadaInicial(posicionInicial));
   if(coordenadaInicial(posicionInicial) != posicionInicial){
     return coordenadaInicial(posicionInicial);
   }
