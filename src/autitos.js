@@ -49,18 +49,34 @@ class Auto {
     if (this.estaMirando("N")) {
       y = y + 1;
       this.comprobarLimitesYAvanzar(x, y);
+      if(x,y> this.limites)
+      {
+        y++;
+      }
     }
     if (this.estaMirando("E")) {
       x = x + 1;
       this.comprobarLimitesYAvanzar(x, y);
+      if(x,y> this.limites)
+      {
+        x++;
+      }
     }
     if (this.estaMirando("S")) {
       y = y - 1;
       this.comprobarLimitesYAvanzar(x, y);
+      if(x,y> this.limites)
+      {
+        y--;
+      }
     }
     if (this.estaMirando("O")) {
       x = x - 1;
       this.comprobarLimitesYAvanzar(x, y);
+      if(x,y> this.limites)
+      {
+        x--;
+      }
     }
     
   }
@@ -127,7 +143,14 @@ export default function superficiePlana(dimension) {
     return dimension;
   }
 }
-
+export function superficiePlaneta(dimension) {
+  if (dimension == "") return "Ingrese una cadena no vacia para la dimension";
+  if (dimension.length == 1) return "La dimension o limite necesita tener 2 valores ej; 2,2";
+  if (dimension[0] != dimension[2]) return "Ingrese una dimension o limite cuadrado. Ej: 5,5";
+  else {
+    return dimension;
+  }
+}
 export function coordenadaInicial(coordenada) {
   if (coordenada == "") return "Ingrese una cadena no vacia para la posicion inicial del auto";
   if (isNaN(coordenada[0]) || isNaN(coordenada[2])) return "Ingrese una coordenada valida de posicion inicial. Ej: 1,2E";

@@ -1,4 +1,4 @@
-import superficiePlana,{coordenadaInicial,validarSecuenciaDe,avanceFinal} from "./autitos.js";
+import superficiePlana,{coordenadaInicial,validarSecuenciaDe,avanceFinal,superficiePlaneta} from "./autitos.js";
 
 describe("Superficie Plana retorno de dimension", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
@@ -118,4 +118,11 @@ describe("Ingresar el nuevo comando creado J", () => {
   it("deberia retornar 5,1E al hacer tres saltos", () => {
     expect(avanceFinal("7,7","1,1E","JJJ")).toEqual("7,1E");
   });
+});
+
+describe("deberia avanzar en una superficie plana circular", () => {
+  it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
+    expect(superficiePlaneta("")).toEqual("Ingrese una cadena no vacia para la dimension");
+  });
+
 });
