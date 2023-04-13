@@ -70,6 +70,10 @@ class Auto {
       y = y + 2;
       this.comprobarLimitesYAvanzar(x, y);
     }
+    if (this.estaMirando("E")) {
+      x = x + 2;
+      this.comprobarLimitesYAvanzar(x, y);
+    }
   }
   moverAutoCon(comando) {
     for(let i = 0; i < comando.length; i++) {

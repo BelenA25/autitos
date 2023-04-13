@@ -112,7 +112,10 @@ describe("Examen: Avanzar en dos lugares con el comando 'J'", () => {
   it("deberia reconocer el comando 'J' al validar la secuencia", () => {
     expect(validarSecuenciaDe("J")).toEqual("J");
   });
-  it("deberia avanzar en dos posiciones al saltar con el comando J en el eje x", () => {
+  it("deberia avanzar en dos posiciones al saltar mirando al norte y avanzando en el eje x", () => {
     expect(avanceFinal("9,9","1,1N","J")).toEqual("1,3N");
+  });
+  it("deberia avanzar en dos posiciones al saltar mirando al este y avanzando en el eje x", () => {
+    expect(avanceFinal("9,9","1,1E","J")).toEqual("3,1E");
   });
 });
