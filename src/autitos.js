@@ -62,7 +62,9 @@ class Auto {
       x = x - 1;
       this.comprobarLimitesYAvanzar(x, y);
     }
+    
   }
+  
   moverAutoCon(comando) {
     for(let i = 0; i < comando.length; i++) {
       if (comando[i] === "I") {

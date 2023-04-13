@@ -115,5 +115,7 @@ describe("Ingresar el nuevo comando creado J", () => {
   it("deberia retornar 5,1E al hacer dos saltos", () => {
     expect(avanceFinal("5,5","1,1E","JJ")).toEqual("5,1E");
   });
-
+  it("deberia retornar 5,1E al hacer tres saltos", () => {
+    expect(avanceFinal("7,7","1,1E","JJJ")).toEqual("7,1E");
+  });
 });
