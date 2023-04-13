@@ -141,4 +141,7 @@ describe("Examen: Cuando llega al limite debe retornar al inicio de la superfici
   it("deberia volver al inicio en el eje x mirando al oeste", () => {
     expect(avanceFinal("5,5","1,2O","AAA")).toEqual("3,2O");
   });
+  it("deberia avanzar continuamente como en circulo", () => {
+    expect(avanceFinal("5,5","1,2N","DAAAAAAIAAAA")).toEqual("2,1N");
+  });
 });
