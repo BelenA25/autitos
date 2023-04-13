@@ -112,5 +112,8 @@ describe("Ingresar el nuevo comando creado J", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(avanceFinal("5,5","1,1E","J")).toEqual("3,1E");
   });
+  it("deberia retornar 5,1E al hacer dos saltos", () => {
+    expect(avanceFinal("5,5","1,1E","JJ")).toEqual("5,1E");
+  });
 
 });
