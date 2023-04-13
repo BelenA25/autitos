@@ -89,12 +89,12 @@ describe("Avance del auto", () => {
   it("deberia moverse continuamente", () => {
     expect(avanceFinal("9,9","1,2N","IAIAIAIAA")).toEqual("1,3N");
   });
-  it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
-    expect(avanceFinal("5,5","1,2N","AAAAAAAAAAA")).toEqual("1,5N");
-  });
-  it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
-    expect(avanceFinal("5,5","1,2N","DAAAAAAAAAA")).toEqual("5,2E");
-  });
+  //it("deberia dejar de avanzar si se sobrepasa el limite en y", () => {
+    //expect(avanceFinal("5,5","1,2N","AAAAAAAAAAA")).toEqual("1,5N");
+  //});
+  //it("deberia dejar de avanzar si se sobrepasa el limite en x", () => {
+   // expect(avanceFinal("5,5","1,2N","DAAAAAAAAAA")).toEqual("5,2E");
+  //});
 });
 describe("Ingresar de manera erronea alguno de los criterios", () => {
   it("deberia retornar mensaje de error si se escribe mal la coordenada incial", () => {
@@ -135,4 +135,7 @@ describe("Examen: Cuando llega al limite debe retornar al inicio de la superfici
   it("deberia volver al inicio en el eje x", () => {
     expect(avanceFinal("5,5","1,2N","DAAAAAAA")).toEqual("3,2E");
   });
+  it("deberia volver al inicio en el eje y mirando al sur", () => {
+    expect(avanceFinal("5,5","1,2S","AAA")).toEqual("1,4S");
+  }); 
 });
