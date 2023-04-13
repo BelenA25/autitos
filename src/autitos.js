@@ -132,32 +132,22 @@ export function coordenadaInicial(coordenada) {
   else return "Ingrese un eje valido de posicion inicial. Ej: N(norte), O(oeste), E(este)";
 }
 
-export function comandos(comando) {
-  if (comando === "I") {
-    return "I";
-  }
-  if (comando === "D") {
-    return "D";
-  }
-  if (comando === "A") {
-    return "A";
-  }
-  else {
-    return "Ingrese una cadena siguiendo la logica I,D,A"
-  }
-}
+
 export function validarSecuencia(secuencia) {
+
+  const comandosValidos = ["I", "D", "A"];
+  if (secuencia=="")
+  {
+    return "estas ingresando un comando vacio, ingrese un comando"
+  }
   let secuenciaValida = "";
 
   for (let i = 0; i < secuencia.length; i++) {
-    let comandoActual = secuencia[i];
-    let resultado = comandos(comandoActual);
-
-    if (resultado === "Ingrese una cadena siguiendo la logica I,D,A") {
-      return resultado;
+    const comandoActual = secuencia[i];
+    if (!comandosValidos.includes(comandoActual)) {
+      return "Ingrese una cadena siguiendo la logica I,D,A";
     }
-
-    secuenciaValida += resultado;
+    secuenciaValida += comandoActual;
   }
 
   return secuenciaValida;
