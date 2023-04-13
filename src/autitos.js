@@ -115,6 +115,10 @@ class Auto {
         this.actualizarPosicionActual(x,parseInt(this.limites[0])-1)
         return
       }
+      if( x <= 0){
+        this.actualizarPosicionActual(parseInt(this.limites[0])-1,y)
+        return
+      }
     }
     else {
       this.actualizarPosicionActual(x, y);
