@@ -124,5 +124,8 @@ describe("deberia avanzar en una superficie plana circular", () => {
   it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
     expect(superficiePlaneta("")).toEqual("Ingrese una cadena no vacia para la dimension");
   });
+  it("deberia retornar un mensaje de error para la superficie de una dimension", () => {
+    expect(superficiePlaneta("1")).toEqual("La dimension o limite necesita tener 2 valores ej; 2,2");
+  });
 
 });
