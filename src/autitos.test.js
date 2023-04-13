@@ -107,3 +107,9 @@ describe("Ingresar de manera erronea alguno de los criterios", () => {
     expect(avanceFinal("asd","1,2N","retete")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
   });
 });
+
+describe("Examen: Avanzar en dos lugares con el comando 'J'", () => {
+  it("deberia reconocer el comando 'J' al validar la secuencia", () => {
+    expect(validarSecuenciaDe("J")).toEqual("J");
+  });
+});

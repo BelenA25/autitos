@@ -135,7 +135,7 @@ export function coordenadaInicial(coordenada) {
 
 export function validarSecuenciaDe(comandos) {
 
-  const comandosValidos = ["I", "D", "A"];
+  const comandosValidos = ["I", "D", "A", "J"];
   if (comandos=="")
   {
     return "estas ingresando un comando vacio, ingrese un comando"
@@ -149,7 +149,6 @@ export function validarSecuenciaDe(comandos) {
     }
     secuenciaValida += comandoActual;
   }
-
   return secuenciaValida;
 }
 
@@ -166,5 +165,4 @@ export function avanceFinal(limites, posicionInicial,comando) {
   }
   auto.moverAutoCon(comando);
   return auto.posicionActual;
-
 }
