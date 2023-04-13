@@ -74,6 +74,10 @@ class Auto {
       if (comando[i] === "A") {
         this.avanzar();
       }
+      if (comando[i] === "J") {
+        this.avanzar();
+        this.avanzar();
+      }
     }
   }
 
@@ -135,7 +139,7 @@ export function coordenadaInicial(coordenada) {
 
 export function validarSecuenciaDe(comandos) {
 
-  const comandosValidos = ["I", "D", "A"];
+  const comandosValidos = ["I", "D", "A","J"];
   if (comandos=="")
   {
     return "estas ingresando un comando vacio, ingrese un comando"

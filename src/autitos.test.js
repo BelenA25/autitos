@@ -107,3 +107,10 @@ describe("Ingresar de manera erronea alguno de los criterios", () => {
     expect(avanceFinal("asd","1,2N","retete")).toEqual("Ingrese una dimension o limite cuadrado. Ej: 5,5");
   });
 });
+
+describe("Ingresar el nuevo comando creado J", () => {
+  it("deberia retornar mensaje de error cuando la cadena es vacia", () => {
+    expect(avanceFinal("5,5","1,1E","J")).toEqual("3,1E");
+  });
+
+});
